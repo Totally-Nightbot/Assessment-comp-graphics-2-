@@ -9,12 +9,12 @@ private Animator animator;
 
    [SerializeField] public bool on;
 
-    public void RagdollOn()
+    public void RagdollOn() //disables the animator and movement physics 
     {
         on = true;
         animator.enabled = false;
     }
-    void Start()
+    void Start() // gets the animator component
     {
         animator = GetComponent<Animator>();
     }
