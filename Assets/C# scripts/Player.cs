@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     private CharacterController characterController;
     private bool playParticle = false;
 
+    
     public ParticleSystem particledust;
     [HideInInspector] public bool colliding = false;
     [HideInInspector] public bool keyGet;
@@ -44,8 +45,6 @@ public class Player : MonoBehaviour
             Debug.Log("key Recived");
             stop = true;
         }
-
-
     }
 
     public void OnSprint(InputAction.CallbackContext context) //When the shift button is held, this will run
@@ -88,24 +87,8 @@ public class Player : MonoBehaviour
     } 
     public void OnMove(InputAction.CallbackContext context) //reads the inputs put in from the keyboard
     {
-        moveInput = context.ReadValue<Vector2>();
-
-            if (context.started)
-            {
-            playParticle = true;
-            }
-            if (context.canceled)
-            {
-            playParticle = false;
-            }
-
-
-           
-            {
-                CreateDust();
-            }    
-
-        }
+        moveInput = context.ReadValue<Vector2>();      
+    }
 
         public void OnPickup(InputAction.CallbackContext context) //when E is pressed then remove object from game and give the player a key.
     {
@@ -123,15 +106,10 @@ public class Player : MonoBehaviour
         else if (context.canceled)
         {
             animator.SetBool("pickUp", false); //set the bool of dancing to false
-            
         }
 
     }
-  
-    void CreateDust()
-    {
-      particledust.Play();
-    }
 
-}
+
+    }
 
