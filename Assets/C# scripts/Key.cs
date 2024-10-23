@@ -8,19 +8,18 @@ public class Key : MonoBehaviour
 
     private void Update()
     {
-        if (player.keyGet == true)
+        if (player.keyGet == true) //checks if the player has collected the key, if it does then destroys the gameobject
         {
             player.colliding = false;
             Destroy(gameObject);
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other) //checks if the player is in the collider or not 
     {
         player.colliding = true;
-        Debug.Log("ENTERED FUCKHEAD");
     }
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other) //checks if the player is in the collider or not 
     {
         player.colliding = false;
     }

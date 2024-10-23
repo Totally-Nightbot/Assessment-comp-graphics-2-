@@ -8,13 +8,12 @@ public class Player : MonoBehaviour
     [HideInInspector] public Animator animator;
     private Vector2 moveInput;  
     private CharacterController characterController;
-    private bool playParticle = false;
+   
 
     
-    public ParticleSystem particledust;
+
     [HideInInspector] public bool colliding = false;
     [HideInInspector] public bool keyGet;
-    private bool stop;
     public float sprint = 2.5f; // The sprint speed
     public float moveSpeed = 5f; // Movement speed
     public float speed;
@@ -40,11 +39,6 @@ public class Player : MonoBehaviour
             animator.SetFloat("y", moveInput.y * moveSpeed);
         }
 
-        if (keyGet == true && stop == false)
-        {
-            Debug.Log("key Recived");
-            stop = true;
-        }
     }
 
     public void OnSprint(InputAction.CallbackContext context) //When the shift button is held, this will run
